@@ -1,0 +1,42 @@
+@import "/styles/variables";
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  padding: 47px 20px 5px;
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 36.4px;
+    margin-bottom: 24px;
+    color: $black;
+    order: 2;
+  }
+
+  .quantity {
+    order: 2;
+    font-size: 14px;
+    font-weight: 500;
+    color: $grey;
+    line-height: 19.6px;
+    padding-bottom: 6px;
+  }
+}
+
+@media (min-device-width: 576px) {
+  .filter {
+    padding: 12px;
+    position: sticky;
+    top: 0;
+
+    h1 {
+      margin-bottom: 13px;
+    }
+
+    .quantity {
+      order: 1;
+      padding-bottom: 5px;
+    }
+  }
+}
