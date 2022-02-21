@@ -1,11 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
+import Shop from './shop';
 
-function Index() {
-  return (
-    <Link href='/shop'>
-      <a href='/#'>Перейти в магазин</a>
-    </Link>
-  );
+function Home() {
+  return <Shop />;
 }
-export default Index;
+
+export default Home;

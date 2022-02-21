@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import '../styles/globale.scss';
-import { Provider } from 'react-redux';
 import React from 'react';
+import { Provider } from 'react-redux';
 import { store } from '../store';
+import '../styles/globale.scss';
 
 export default function MyApp({ Component, pageProps }) {
   return (

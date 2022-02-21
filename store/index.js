@@ -3,7 +3,7 @@ import { filterReducer } from './filerReducer';
 import { productsReducer } from './productsReducer';
 
 const rootReducer = combineReducers({
-  filter: filterReducer,
+  filters: filterReducer,
   products: productsReducer,
 });
 

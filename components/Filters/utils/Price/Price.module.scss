@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import "../../../../styles/variables";
 
 .price {
   border: 1px solid $light-grey;
@@ -6,9 +6,7 @@
   &:hover {
     border: 1px solid $grey-hover;
   }
-
-  width: 224px;
-  height: 42px;
+  max-width: 224px;
   margin-bottom: 48px;
   border-radius: 4px;
 }
@@ -36,7 +34,7 @@
   }
 }
 
-.title {
+.title {//вынеси мусор
   color: #1B1B1B;
   font-size: 16px;
   line-height: 22.4px;

@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import "../../../../styles/variables";
 
 .checkbox {
   margin-bottom: 10px;
@@ -13,6 +13,8 @@
 
 .label {
   cursor: pointer;
+  display: flex;
+
 
   &:hover{
     &:before{
@@ -22,6 +24,9 @@
 
   span {
     padding-left: 27px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   &:before {

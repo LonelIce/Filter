@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Checkbox from '../Checkbox/Checkbox';
+import Checkbox from '../Checkbox';
 
 function IsNew({ data }) {
   const dispatch = useDispatch();

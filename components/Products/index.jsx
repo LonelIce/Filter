@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from './CardProduct/ProductCard';
+import ProductCard from './ProductCard';
 import styles from './Products.module.scss';
 
 function Products({ products }) {
@@ -13,8 +13,7 @@ function Products({ products }) {
             title={product.title}
             price={product.price}
             isNew={product.is_new}
-            inStock={product.in_stock}
-            condition={product.condition}
+            isSecondHand={product.is_second_hand}
           />
         ))
       ) : (

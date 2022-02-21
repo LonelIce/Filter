@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Checkbox from '../Checkbox';
 import styles from './Brands.module.scss';
-import Checkbox from '../Checkbox/Checkbox';
 
 function Brands({ data }) {
   const dispatch = useDispatch();
