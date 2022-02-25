@@ -7,17 +7,10 @@ function Products({ products }) {
     <div className={styles.products}>
       {products.length !== 0 ? (
         products.map((product) => (
-          <ProductCard
-            key={product.id}
-            image={product.image}
-            title={product.title}
-            price={product.price}
-            isNew={product.is_new}
-            isSecondHand={product.is_second_hand}
-          />
+          <ProductCard key={product.id} data={product} />
         ))
       ) : (
-        <div>Товар не найден</div>
+        <div className={styles.noProducts}>Товар не найден</div>
       )}
     </div>
   );

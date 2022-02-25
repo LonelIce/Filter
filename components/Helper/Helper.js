@@ -36,20 +36,19 @@ class Helper {
 
   // adds a space each every 3 characters from the end
   static addSpaces = (string) => {
-    if (string.length > 3) {
-      const { length } = string;
-      const chars = string.split('');
-
+    let newStr = string;
+    if (newStr.length > 3) {
+      const { length } = newStr;
+      const chars = newStr.split('');
       const strWithSpaces = chars.reduceRight((acc, char, i) => {
         const spaceOrNothing = (length - i) % 3 === 0 ? ' ' : '';
         return spaceOrNothing + char + acc;
       }, '');
-      strWithSpaces[0] === ' '
-        ? (string = strWithSpaces.slice(1))
-        : (string = strWithSpaces);
+      if (strWithSpaces[0] === ' ') newStr = strWithSpaces.slice(1);
+      else newStr = strWithSpaces;
     }
 
-    return string;
+    return newStr;
   };
 
   static deleteSymbolsAfterPoint = (string) => {

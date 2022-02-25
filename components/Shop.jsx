@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Filters from '../components/Filters';
-import Products from '../components/Products';
+import Head from 'next/head';
+import Filters from './Filters';
+import Products from './Products';
 import productsActionTypes from '../store/actionTypes/products';
 import filtersActionTypes from '../store/actionTypes/filters';
 
-function Shop() {
+function Shop({ slug }) {
   const filters = useSelector((state) => state.filters);
   const { query } = filters;
   const product = useSelector((state) => state.products.products);
@@ -13,9 +14,9 @@ function Shop() {
 
   const debounce = (fn, ms) => {
     let timeout;
-    return function () {
+    return function newFn(...arg) {
       const fnCall = () => {
-        fn.apply(this, arguments);
+        fn.apply(this, arg);
       };
       clearTimeout(timeout);
       timeout = setTimeout(fnCall, ms);
@@ -25,7 +26,7 @@ function Shop() {
   async function getNewProducts(q) {
     try {
       const response = await fetch(
-        `https://getlens-master.stage.dev.family/api/pages/obektivy${q}`
+        `https://getlens-master.stage.dev.family/api/pages/${slug}${q}`
       );
       const data = await response.json();
       dispatch({
@@ -49,6 +50,10 @@ function Shop() {
 
   return (
     <>
+      <Head>
+        <meta keywords={slug} />
+        <title>Объективы</title>
+      </Head>
       <Filters
         filters={filters}
         amountOfProduct={product.length}

@@ -1,8 +1,8 @@
 import React from 'react';
-import Shop from './shop';
+import Shop from '../components/Shop';
 
 function Home() {
-  return <Shop />;
+  return <Shop slug='obektivy' />;
 }
 
 export default Home;

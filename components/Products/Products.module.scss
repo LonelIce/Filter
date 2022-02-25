@@ -1,28 +1,19 @@
 .products {
   display: flex;
   flex-direction: column;
-  width: 100%;
+
+  .noProducts{
+    padding-top: 12px;
+    font-size: 24px;
+  }
 }
 
 @media (min-device-width: 576px) {
   .products {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     padding-left:38px;
-    justify-content: space-between;
-    max-width: min-content;
-  }
-}
-
-@media (min-device-width: 857px) {
-  .products {
-    max-width: max-content;
-    justify-content:space-evenly;
-  }
-}
-@media (min-device-width: 1366px) {
-  .products {
     justify-content: flex-start;
   }
 }
