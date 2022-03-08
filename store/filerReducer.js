@@ -81,3 +81,23 @@ export const filterReducer = (state = defaultState, action = {}) => {
       return state;
   }
 };
+
+export const changeMinPriceAction = (payload) => ({
+  type: actionTypes.CHANGE_MIN_PRICE,
+  payload,
+});
+export const changeMaxPriceAction = (payload) => ({
+  type: actionTypes.CHANGE_MAX_PRICE,
+  payload,
+});
+export const changeCheckedBrandsAction = (payload) => ({
+  type: actionTypes.CHANGE_CHECKED_BRANDS,
+  payload,
+});
+export const changeCheckedIsNewAction = () => ({
+  type: actionTypes.CHANGE_CHECKED_IS_NEW,
+});
+export const changeCheckedIsPromoAction = () => ({
+  type: actionTypes.CHANGE_CHECKED_IS_PROMO,
+});
+export const setQueryAction = () => ({ type: actionTypes.SET_QUERY });

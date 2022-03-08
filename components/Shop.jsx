@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Head from 'next/head';
 import Filters from './Filters';
 import Products from './Products';
-import productsActionTypes from '../store/actionTypes/products';
-import filtersActionTypes from '../store/actionTypes/filters';
+import { setProductsAction } from '../store/productsReducer';
+import { setQueryAction } from '../store/filerReducer';
 
 function Shop({ slug }) {
   const filters = useSelector((state) => state.filters);
@@ -29,10 +29,7 @@ function Shop({ slug }) {
         `https://getlens-master.stage.dev.family/api/pages/${slug}${q}`
       );
       const data = await response.json();
-      dispatch({
-        type: productsActionTypes.SET_PRODUCTS,
-        payload: data?.products,
-      });
+      dispatch(setProductsAction(data?.products));
     } catch (e) {
       console.log(e);
     }
@@ -41,7 +38,7 @@ function Shop({ slug }) {
   const loadNewProducts = useCallback(debounce(getNewProducts, 500), []);
 
   useEffect(() => {
-    dispatch({ type: filtersActionTypes.SET_QUERY });
+    dispatch(setQueryAction());
   }, [filters]);
 
   useEffect(() => {

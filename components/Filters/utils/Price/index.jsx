@@ -1,24 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Helper from '../../../Helper/Helper';
+import {
+  changeMaxPriceAction,
+  changeMinPriceAction,
+} from '../../../../store/filerReducer';
 import styles from './Price.module.scss';
-import actionTypes from '../../../../store/actionTypes/filters';
 
 function Price({ data }) {
   const dispatch = useDispatch();
 
   const changeMinPrice = (price) => {
-    dispatch({
-      type: actionTypes.CHANGE_MIN_PRICE,
-      payload: Helper.formatPriceInput(price),
-    });
+    dispatch(changeMinPriceAction(Helper.formatPriceInput(price)));
   };
 
   const changeMaxPrice = (price) => {
-    dispatch({
-      type: actionTypes.CHANGE_MAX_PRICE,
-      payload: Helper.formatPriceInput(price),
-    });
+    dispatch(changeMaxPriceAction(Helper.formatPriceInput(price)));
   };
 
   return (

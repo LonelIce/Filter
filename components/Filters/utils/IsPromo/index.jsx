@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Checkbox from '../Checkbox';
+import { changeCheckedIsPromoAction } from '../../../../store/filerReducer';
 
 function IsPromo({ data }) {
   const dispatch = useDispatch();
 
   const changeIsPromo = () => {
-    dispatch({ type: 'CHANGE_CHECKED_IS_PROMO' });
+    dispatch(changeCheckedIsPromoAction());
   };
 
   return (

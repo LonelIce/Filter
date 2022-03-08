@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Checkbox from '../Checkbox';
+import { changeCheckedIsNewAction } from '../../../../store/filerReducer';
 
 function IsNew({ data }) {
   const dispatch = useDispatch();
 
   const changeIsNew = () => {
-    dispatch({ type: 'CHANGE_CHECKED_IS_NEW' });
+    dispatch(changeCheckedIsNewAction());
   };
 
   return (

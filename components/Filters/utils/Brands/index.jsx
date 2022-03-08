@@ -1,13 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Checkbox from '../Checkbox';
+import { changeCheckedBrandsAction } from '../../../../store/filerReducer';
 import styles from './Brands.module.scss';
 
 function Brands({ data }) {
   const dispatch = useDispatch();
 
   const changeChecked = (value) => {
-    dispatch({ type: 'CHANGE_CHECKED_BRANDS', payload: value });
+    dispatch(changeCheckedBrandsAction(value));
   };
 
   return (

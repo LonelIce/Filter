@@ -12,3 +12,8 @@ export const productsReducer = (state = defaultState, action = {}) => {
       return state;
   }
 };
+
+export const setProductsAction = (payload) => ({
+  type: actionTypes.SET_PRODUCTS,
+  payload,
+});
