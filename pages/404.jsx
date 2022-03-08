@@ -10,7 +10,7 @@ function Custom404() {
         <title>Page Not Found</title>
       </Head>
       <h1>404 - Page Not Found</h1>
-      <Link href='/'>
+      <Link href='/shop'>
         <button type='button'>Перейти к списку товаров</button>
       </Link>
     </div>
