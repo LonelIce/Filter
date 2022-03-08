@@ -1,8 +1,7 @@
 import React from 'react';
-import Shop from '../components/Shop';
 
 function Home() {
-  return <Shop slug='obektivy' />;
+  return <div>Главная страница</div>;
 }
 
 export default Home;

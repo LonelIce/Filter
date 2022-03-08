@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Head from 'next/head';
-import Filters from './Filters';
-import Products from './Products';
+import Head from 'next/dist/next-server/lib/head';
 import { setProductsAction } from '../store/productsReducer';
 import { setQueryAction } from '../store/filerReducer';
+import Filters from '../components/Filters';
+import Products from '../components/Products';
 
 function Shop({ slug }) {
   const filters = useSelector((state) => state.filters);
@@ -26,7 +26,7 @@ function Shop({ slug }) {
   async function getNewProducts(q) {
     try {
       const response = await fetch(
-        `https://getlens-master.stage.dev.family/api/pages/${slug}${q}`
+        `https://getlens-master.stage.dev.family/api/pages/obektivy${q}`
       );
       const data = await response.json();
       dispatch(setProductsAction(data?.products));
