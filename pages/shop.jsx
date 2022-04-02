@@ -1,16 +1,16 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Head from 'next/dist/next-server/lib/head';
 import { setProductsAction } from '../store/productsReducer';
-import { setQueryAction } from '../store/filerReducer';
 import Filters from '../components/Filters';
 import Products from '../components/Products';
+import { getFormattedQuery } from '../helper/helper';
 
 function Shop({ slug }) {
   const filters = useSelector((state) => state.filters);
-  const { query } = filters;
   const product = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
+  const [query, setQuery] = useState('');
 
   const debounce = (fn, ms) => {
     let timeout;
@@ -38,7 +38,7 @@ function Shop({ slug }) {
   const loadNewProducts = useCallback(debounce(getNewProducts, 500), []);
 
   useEffect(() => {
-    dispatch(setQueryAction());
+    setQuery(getFormattedQuery(filters));
   }, [filters]);
 
   useEffect(() => {

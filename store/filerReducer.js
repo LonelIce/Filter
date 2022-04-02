@@ -1,4 +1,3 @@
-import { getFormattedQuery } from './helper/Helper';
 import actionTypes from './actionTypes/filters';
 
 const defaultState = {
@@ -39,7 +38,6 @@ const defaultState = {
       },
     ],
   },
-  query: '',
 };
 
 export const filterReducer = (state = defaultState, action = {}) => {
@@ -72,11 +70,6 @@ export const filterReducer = (state = defaultState, action = {}) => {
         ...state,
         isPromo: { ...state.isPromo, checked: !state.isPromo.checked },
       };
-    case actionTypes.SET_QUERY: {
-      const query = getFormattedQuery(state);
-      if (query !== state.query) return { ...state, query };
-      return state;
-    }
     default:
       return state;
   }
@@ -100,4 +93,3 @@ export const changeCheckedIsNewAction = () => ({
 export const changeCheckedIsPromoAction = () => ({
   type: actionTypes.CHANGE_CHECKED_IS_PROMO,
 });
-export const setQueryAction = () => ({ type: actionTypes.SET_QUERY });

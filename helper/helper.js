@@ -16,7 +16,7 @@ export const getFormattedQuery = (state) => {
   else if (query[query.length - 1] !== '?') query += '&is_promo[]=true';
   else query += 'is_promo[]=true';
 
-  let isChanged = false; // она нужна мне для сравнения дефолного состояния и имеющегося
+  let isChanged = false;
   state.brands.items.forEach((brand) => {
     if (brand.checked !== true) isChanged = true;
   });
