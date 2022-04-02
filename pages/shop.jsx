@@ -1,35 +1,60 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Filters from '../components/Filters/Filters';
-import Products from '../components/Products/Products';
+import Head from 'next/dist/next-server/lib/head';
+import { setProductsAction } from '../store/productsReducer';
+import Filters from '../components/Filters';
+import Products from '../components/Products';
+import { getFormattedQuery } from '../helper/helper';
 
-function Shop() {
-  const filters = useSelector((state) => state.filter.filters);
-  const query = useSelector((state) => state.filter.query);
+function Shop({ slug }) {
+  const filters = useSelector((state) => state.filters);
   const product = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
+  const [query, setQuery] = useState('');
+
+  const debounce = (fn, ms) => {
+    let timeout;
+    return function newFn(...arg) {
+      const fnCall = () => {
+        fn.apply(this, arg);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(fnCall, ms);
+    };
+  };
 
   async function getNewProducts(q) {
-    const response = await fetch(
-      `https://getlens-master.stage.dev.family/api/pages/obektivy${q}`
-    );
-    const data = await response.json();
-    dispatch({ type: 'SET_PRODUCTS', payload: data.products });
+    try {
+      const response = await fetch(
+        `https://getlens-master.stage.dev.family/api/pages/obektivy${q}`
+      );
+      const data = await response.json();
+      dispatch(setProductsAction(data?.products));
+    } catch (e) {
+      console.log(e);
+    }
   }
 
+  const loadNewProducts = useCallback(debounce(getNewProducts, 500), []);
+
   useEffect(() => {
-    dispatch({ type: 'SET_QUERY' });
+    setQuery(getFormattedQuery(filters));
   }, [filters]);
+
   useEffect(() => {
-    getNewProducts(query);
+    loadNewProducts(query);
   }, [query]);
 
   return (
     <>
+      <Head>
+        <meta keywords={slug} />
+        <title>Объективы</title>
+      </Head>
       <Filters
         filters={filters}
         amountOfProduct={product.length}
-        categoryCode='obuektivy'
+        title='Объективы'
       />
       <Products products={product} />
     </>

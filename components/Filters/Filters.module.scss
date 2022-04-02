@@ -1,9 +1,14 @@
 @import "/styles/variables";
 
-.filter {
+.filters {
+  min-width: 224px;
   display: flex;
   flex-direction: column;
   padding: 47px 20px 5px;
+
+  .filter{
+    order: 3;
+  }
 
   h1 {
     font-size: 26px;
@@ -12,6 +17,7 @@
     margin-bottom: 24px;
     color: $black;
     order: 2;
+    overflow-wrap: break-word;
   }
 
   .quantity {
@@ -20,13 +26,13 @@
     font-weight: 500;
     color: $grey;
     line-height: 19.6px;
-    padding-bottom: 6px;
+    margin-bottom: 6px;
   }
 }
 
 @media (min-device-width: 576px) {
-  .filter {
-    padding: 12px;
+  .filters {
+    padding: 12px 0;
     position: sticky;
     top: 0;
 
@@ -36,7 +42,7 @@
 
     .quantity {
       order: 1;
-      padding-bottom: 5px;
+      margin-bottom: 5px;
     }
   }
 }

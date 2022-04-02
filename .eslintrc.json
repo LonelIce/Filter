@@ -22,6 +22,6 @@
   "rules": {
     "import/prefer-default-export": "off",
     "prettier/prettier": "error",
-    "react/prop-types": "off"// позже нужно бы поразмышлять об том нафига я это отключил, может есть другой вариант избавиться от ошибки...
+    "react/prop-types": "off"
   }
 }
