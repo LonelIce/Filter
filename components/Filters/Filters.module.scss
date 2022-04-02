@@ -14,7 +14,7 @@
     font-size: 26px;
     font-weight: 700;
     line-height: 36.4px;
-    padding-bottom: 24px;
+    margin-bottom: 24px;
     color: $black;
     order: 2;
     overflow-wrap: break-word;
@@ -26,7 +26,7 @@
     font-weight: 500;
     color: $grey;
     line-height: 19.6px;
-    padding-bottom: 6px;
+    margin-bottom: 6px;
   }
 }
 
@@ -37,12 +37,12 @@
     top: 0;
 
     h1 {
-      padding-bottom: 13px;
+      margin-bottom: 13px;
     }
 
     .quantity {
       order: 1;
-      padding-bottom: 5px;
+      margin-bottom: 5px;
     }
   }
 }
